@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>DriveGuard App</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Drive Guard</h1>
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-6 col-lg-4 offset-lg-8 custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="darkModeToggle" onclick="toggleDarkMode()">
+                <label class="custom-control-label" for="darkModeToggle">Dark Mode</label>
+            </div>
+        </div>
+
+        <form id="carForm" onsubmit="return validateForm()" action="https://driveguard.pythonanywhere.com/form-submit#" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="handbrake">Engage Handbrake:</label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="handbrake" name="handbrake">
+                    <label class="custom-control-label" for="handbrake"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="gear">Secure First Gear:</label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="gear" name="gear">
+                    <label class="custom-control-label" for="gear"></label>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div id="notification" class="alert alert-success mt-3" role="alert" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
